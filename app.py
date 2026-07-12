@@ -243,7 +243,8 @@ with tabs[0]:
             st.subheader("ABC-XYZ portfolio mix")
             t = res["tiers"].copy(); t["xyz"] = t.index.map(res["xyz"])
             ct = pd.crosstab(t["tier"], t["xyz"])
-            st.dataframe(ct.style.background_gradient(cmap="Blues"), use_container_width=True)
+            #st.dataframe(ct.style.background_gradient(cmap="Blues"), use_container_width=True)
+            st.dataframe(ct)
             st.caption("A-X = predictable flagships (lean buffers work) · D-Z = erratic tail (watch list). "
                        + TT["sl"])
 
@@ -251,7 +252,8 @@ with tabs[0]:
         hm = res["norms"].assign(tier=lambda x: x.sku.map(res["tiers"]["tier"])) \
             .pivot_table(index="tier", columns="cfa", values="safety_stock_kl", aggfunc="sum").round(0)
         hm.columns = [c.replace(" CFA", "") for c in hm.columns]
-        st.dataframe(hm.style.background_gradient(cmap="YlOrRd", axis=None), use_container_width=True)
+        # st.dataframe(hm.style.background_gradient(cmap="YlOrRd", axis=None), use_container_width=True)
+        st.dataframe(hm)
 
         st.subheader("📋 Planner recommendations")
         for r in recommendations(plan, res["data"], res["tiers"]):
