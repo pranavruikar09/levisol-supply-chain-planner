@@ -1,7 +1,7 @@
-streamlit>=1.30
-pandas>=2.0
-numpy>=1.24
-openpyxl>=3.1
-plotly>=5.18
-networkx>=2.8
-matplotlib>=3.7
+streamlit==1.59.1
+pandas==2.2.3
+numpy==2.2.6
+openpyxl==3.1.5
+plotly==6.2.0
+networkx==3.4.2
+matplotlib==3.10.5
